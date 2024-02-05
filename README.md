@@ -1,4 +1,5 @@
 # Neural-Networks-Semester-Project
+### Evan Ackerman
 This is the repository for my semester project in CSE 40868.
 
 # Part One: Conceptual Design
