@@ -20,3 +20,9 @@ When thinking about the key features of the signature data, first and foremost t
 
 ## First Blueprint/Thoughts for the Architecture of the System
 Based on what I know from CSE 30124 and topics discussed so far in this course, my initial thought is going to be to design some sort of a convolutional neural network. My thought is to have some number of convolutional layers with non-linear activation functions, and also take advantage of pooling. My knowledge of pooling at this point, is that it will help the speed of the network by only taking the most important features, which will in turn lead to less total weights that need to be calculated. I also believe that the final output layer will only need one neuron, as the output of the system should just be one of two things: a valid or fraud signature. After reading the links given on Siamese networks, it seems like a CNN of this setup is a good way to go about the problem. By setting it up in parallel, the system can have a valid signature and potentially fraudulent signature and use the differences in the results to determine its validity. Admittedly, I need to return to those links to help fully understand Siamese architecture, but at this point in the semester I feel like we have a solid vision in place for moving forward.
+
+
+## Patrick's Thoughts
+
+## Data Acquisition
+Additional datasets we could consider working with are the [CEDAR Signature Database](https://paperswithcode.com/dataset/cedar-signature) and the [IAM Handwriting Database](https://fki.tic.heia-fr.ch/databases/iam-handwriting-database). Using data from multiple different sources may also help us eliminate any bias in the presentation format of that data. Seeing data in slightly different forms could also help the model's performance when presented with images written on a different surface or with a different writing utensil. This could also help us reach a training, validation, and testing split closer to 70%/15%/15%. 
