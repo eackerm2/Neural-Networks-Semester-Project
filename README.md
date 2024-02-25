@@ -40,3 +40,15 @@ The training process will most likely utilize mini-batch gradient descent and ba
 After the initial training process is complete, if we have time we may find a need to adjust some aspects of our model such as preprocessing, model architecture, or the hyperparameters. If we are struggling with our datasets, we could also play around with data augmentation techniques. Once our network is completed we will hopefully be able to use it to correctly verify our own signatures and deny forged attempts. 
 
 _ChatGPT was used for reference in the above._
+
+# Part Two: Datasets
+
+## Source of Data
+
+## Differences in Trainings/Validation Subsets
+
+## Number of Distinct Subjects/Samples per Subject
+
+## Characterization of Samples
+
+## Example Samples
