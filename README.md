@@ -50,6 +50,7 @@ The source of the data is the [Kaggle](https://www.kaggle.com/code/ananyapisal/s
 ## Differences in Trainings/Validation Subsets
 
 ## Number of Distinct Subjects/Samples per Subject
+As mentioned earlier, there are a total of 30 subjects in this dataset with 5 real and 5 forged signatures for each.
 
 ## Characterization of Samples
 
