@@ -66,7 +66,7 @@ Approximate Image Width Range: 150 - 1700 pixels \
 Approximate Image Height Range: 50 - 750 pixels \
 Approximate Image Bit Depth: 8 or 24 \
 File Type: PNG \
-\ Clearly, our input data is not standardized in any way so we will need to do so. The images come in a wide range of file sizes, heights, widths, and colors. Some images are already grayscale and some need to be converted to grayscale. We will also scale all images to 200x75 pixels for standardized input. All images from the Kaggle dataset are in PNG format. 
+Clearly, our input data is not standardized in any way so we will need to do so. The images come in a wide range of file sizes, heights, widths, and colors. Some images are already grayscale and some need to be converted to grayscale. We will also scale all images to 200x75 pixels for standardized input. All images from the Kaggle dataset are in PNG format. 
 
 ## Example Samples
 #### Evan
