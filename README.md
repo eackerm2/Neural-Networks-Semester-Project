@@ -76,3 +76,5 @@ After getting into the dataset and working in CoLab, we were able to start some 
 ![og2](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/723168ef-8fca-4f4d-934c-29879aca966c)
 ![og3](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/5e29569e-b56d-40d1-9169-e20d506f76c7)
 ![og4](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/bc59dc70-964a-4d2a-9c80-a82d32980e01)
+
+_Worked Together in Hesburg Library_
