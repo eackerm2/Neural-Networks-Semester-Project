@@ -62,3 +62,9 @@ As mentioned earlier, there are a total of 30 subjects in this dataset with 5 re
 
 ## Example Samples
 ### Evan
+After getting into the dataset and working in CoLab, we were able to start some initial pre-processing. The first step of pre-processing was to convert all of the images to grayscale. We don't care about the color of the signature, the most important parts are the changes in saturation (which indicate where pens may have been picked up etc) and the straightness of the strokes. By converting all to grayscale, we are making sure everything is standardized going forward. Another pre-processing item we performed was the addition of mirroring, this way for each signature there can be more points for us to train with. An example signature after converted to grayscale with its respective rotations can be seen below (IMAGES NOT TO SCALE IN THIS PHOTO MERELY SCREENSHOTS FROM COLAB):
+
+![og](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/b59fb42a-3542-45a5-9183-2f2f498e5da9)
+![og2](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/723168ef-8fca-4f4d-934c-29879aca966c)
+![og3](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/5e29569e-b56d-40d1-9169-e20d506f76c7)
+![og4](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/bc59dc70-964a-4d2a-9c80-a82d32980e01)
