@@ -45,13 +45,20 @@ _ChatGPT was used for reference in the above._
 With a vision in mind from Part One, we are now onto working with data so that we can create this network that will be able to detect fraud for any signature.
 
 ## Source of Data
+### Evan
 The source of the data is the [Kaggle](https://www.kaggle.com/code/ananyapisal/starter-handwritten-signatures-c0f7b216-0/input) set provided in the project description page. There are 30 subjects in this data set, with 5 real signatures and 5 forged signatures each. In essence, we have about 300 raw points. However, in order to maximize utility out of this dataset, we will also perform rotations on each of the signatures to allow us to have more points. We will also each add a sample of our own signatures to the test set after our model has been trained!
 
 ## Differences in Trainings/Validation Subsets
+### Patrick
+After aquiring our initial dataset a challenge we initially faced was to differentiate between unique images and duplicate images. The dataset iteslf was divided into four subsections, but most of the data between each section was duplicated. After parsing the data to identify unique samples, we chose to initially focus our training and validation sets on the Kaggle data. We chose to use samples from completely different signees for training and validation data to identify possible areas of our model overfitting to individual writing styles. Our training data will contain 110 unique images and our validation data will contain 25 unique images so our validation subset will be about 22.7% of the size of our training data. 
 
 ## Number of Distinct Subjects/Samples per Subject
-As mentioned earlier, there are a total of 30 subjects in this dataset with 5 real and 5 forged signatures for each.
+### Patrick
+As mentioned earlier, there are a total of 30 subjects in this dataset with 5 real and 5 forged signatures for each. To increase the size of our training, validation, and testing data, we will include not only the original images, but also a vertical reflection, a horizontal reflection, and a vertically and horizontally reflected copy for each sample which will increase the size of each data subset by a factor of 4. This means that we actually use 440 inputs for training and 100 inputs for validation. In addition to the 15 unique photos from the kaggle data we set aside for testing, we will include 5 of each of our own true and forged signatures in the testing set which will give 25 unique photos and 100 inputs with rotation for the testing set. 
 
 ## Characterization of Samples
+### Patrick
+
 
 ## Example Samples
+### Evan
