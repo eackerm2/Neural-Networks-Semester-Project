@@ -42,8 +42,10 @@ After the initial training process is complete, if we have time we may find a ne
 _ChatGPT was used for reference in the above._
 
 # Part Two: Datasets
+With a vision in mind from Part One, we are now onto working with data so that we can create this network that will be able to detect fraud for any signature.
 
 ## Source of Data
+The source of the data is the [Kaggle](https://www.kaggle.com/code/ananyapisal/starter-handwritten-signatures-c0f7b216-0/input) set provided in the project description page. There are 30 subjects in this data set, with 5 real signatures and 5 forged signatures each. In essence, we have about 300 raw points. However, in order to maximize utility out of this dataset, we will also perform rotations on each of the signatures to allow us to have more points. We will also each add a sample of our own signatures to the test set after our model has been trained!
 
 ## Differences in Trainings/Validation Subsets
 
