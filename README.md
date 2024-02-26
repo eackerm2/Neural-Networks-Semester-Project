@@ -45,26 +45,30 @@ _ChatGPT was used for reference in the above._
 With a vision in mind from Part One, we are now onto working with data so that we can create this network that will be able to detect fraud for any signature.
 
 ## Source of Data
-### Evan
+#### Evan
 The source of the data is the [Kaggle](https://www.kaggle.com/code/ananyapisal/starter-handwritten-signatures-c0f7b216-0/input) set provided in the project description page. There are 30 subjects in this data set, with 5 real signatures and 5 forged signatures each. In essence, we have about 300 raw points. However, in order to maximize utility out of this dataset, we will also perform rotations on each of the signatures to allow us to have more points. We will also each add a sample of our own signatures to the test set after our model has been trained!
 
 ## Differences in Trainings/Validation Subsets
-### Patrick
+#### Patrick
 After aquiring our initial dataset a challenge we initially faced was to differentiate between unique images and duplicate images. The dataset iteslf was divided into four subsections, but most of the data between each section was duplicated. After parsing the data to identify unique samples, we chose to initially focus our training and validation sets on the Kaggle data. We chose to use samples from completely different signees for training and validation data to identify possible areas of our model overfitting to individual writing styles. Our training data will contain 110 unique images and our validation data will contain 25 unique images so our validation subset will be about 22.7% of the size of our training data. 
 
 ## Number of Distinct Subjects/Samples per Subject
-### Patrick & Evan
+#### Patrick & Evan
 As mentioned earlier, there are a total of 30 subjects in this dataset with 5 real and 5 forged signatures for each. To increase the size of our training, validation, and testing data, we will include not only the original images, but also a vertical reflection, a horizontal reflection, and a vertically and horizontally reflected copy for each sample which will increase the size of each data subset by a factor of 4. This means that we actually use 440 inputs for training and 100 inputs for validation. In addition to the 15 unique photos from the kaggle data we set aside for testing, we will include 5 of each of our own true and forged signatures in the testing set which will give 25 unique photos and 100 inputs with rotation for the testing set. We made a diagram to help visualize the breakdown of our data with subjects/samples:
 
 ![diagram](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/ebbad0da-180a-4b26-b287-0d6bc726b374)
 
 
 ## Characterization of Samples
-### Patrick
-
+#### Patrick
+Image Width Range: 150 - 1700 pixels
+Image Height Range: 50 - 750 pixels
+Image Bit Depth: 8 or 24
+File Type: PNG
+Clearly, our input data is not standardized in any way. The images come in a wide range of file sizes, heights, widths, and colors. Some images are already grayscale and some need to be converted to grayscale. We will also scale all images to 200x75 pixels for standardized input. All images from the Kaggle dataset are in PNG format. 
 
 ## Example Samples
-### Evan
+#### Evan
 After getting into the dataset and working in CoLab, we were able to start some initial pre-processing. The first step of pre-processing was to convert all of the images to grayscale. We don't care about the color of the signature, the most important parts are the changes in saturation (which indicate where pens may have been picked up etc) and the straightness of the strokes. By converting all to grayscale, we are making sure everything is standardized going forward. Another pre-processing item we performed was the addition of mirroring, this way for each signature there can be more points for us to train with. An example signature after converted to grayscale with its respective rotations can be seen below (Images not to scale in this photo, merely screenshots from CoLab):
 
 ![og](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/b59fb42a-3542-45a5-9183-2f2f498e5da9)
