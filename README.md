@@ -78,3 +78,14 @@ After getting into the dataset and working in CoLab, we were able to start some 
 ![og4](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/bc59dc70-964a-4d2a-9c80-a82d32980e01)
 
 _Worked Together in Hesburg Library_
+
+# Part 3: First Solution and Validation Accuracy
+
+### Breakdown of Work:
+#### Patrick:
+#### - Downloading and getting raw data into Drive
+#### - Creation of preprocessing functions like flipping and converting to grayscale
+
+#### Evan:
+#### - Function to resize all of the images to standard size
+#### - Preprocessing Data to tensors and prepping train/validation split
