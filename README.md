@@ -80,6 +80,10 @@ After getting into the dataset and working in CoLab, we were able to start some 
 _Worked Together in Hesburg Library_
 
 # Part 3: First Solution and Validation Accuracy
+## Justification of Architecture
+### General Architecture:
+For our project, we had decided to explore the technique of using a Siamese network to help train our model. The basis is that our network has two inputs so that it can compare two patterns and output a value corresponding to the similarity between them. That way the network could learn the difference between real signatures and fake signatures via training.
+
 
 ### Breakdown of Work:
 Both:
