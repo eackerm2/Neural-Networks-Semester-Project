@@ -83,6 +83,30 @@ _Worked Together in Hesburg Library_
 ## Justification of Architecture
 ### General Architecture:
 For our project, we had decided to explore the technique of using a Siamese network to help train our model. The basis is that our network has two inputs so that it can compare two patterns and output a value corresponding to the similarity between them. That way the network could learn the difference between real signatures and fake signatures via training.
+(Background on Training)
+We hope for the model to be subject-agnostic. To attempt to make this happen, we split the data intentionally so that we broke it up into subjects for the data. There are 30 subjects worth of raw data, and within each subject 5 real signatures and 5 forged signatures. We then applied some mirroring techniques to increase our input data, so there are 1200 total signatures, 20 real and 20 fake for each subject. In the division of our data into training, validation, and testing sets, we made sure that all samples taken from any one individual were in the same data loader. This was in an effort to make sure that the model hadn’t seen any signatures in training that could appear in validation. Had we simply randomly assigned samples to each data set, the model could have seen samples from all subjects in some form during training, and so as a result would not have been subject agnostic due to background influence in some form on all of the samples being used. Simply put, the model could have overfit on the individual writers. 
+
+(Loss Function & Optimizer)
+Since we are attempting a Siamese architecture, we are trying to differentiate between the input images. Upon further research, we found that the contrastive loss function may be of use to us since we are trying to determine samples as similar (if they are both genuine or both forged) or dissimilar (one signature is real and the other is fake). Our thought is that you can give the network a real signature of a person, and then a new signature that is either real or fake. Based on the differences observed between the signatures, it should then be able to say the second signature is genuine or forged. The optimizer we used was the Adam optimizer. One of the reasons we decided to use it is because it pretty much only has one hyperparameter that needs to be tuned, which is just the learning rate in our case (other options exist with Adam but we felt we’d start simple).
+
+(Specifics of the Architecture)
+Generally speaking, the overarching architecture includes that of a Convolutional Neural Network followed by a fully connected layer. Inside of the Convolutional Network part of our model, we have 4 convolutional layers all with a ReLU activation function and batch normalization and with max pooling implemented in the first 3 layers. The number of convolutional layers was determined as we didn’t want training to take too long by adding too many layers. Consequently, the dimensions of the layers are not overly large either. These are both things that we can go back at the end and fine tune if we see fit. We experimented with some different kernel sizes, but felt 7x7 would be big enough, as anything smaller might not capture larger spatial patterns. The input to the network is 2 images, both 75x200 (standardized in preprocessing). The layers in order move from input and output sizes of 3, 64 to 64, 128 to 128, 128 to 128, 256. The fully connected section of our network then has 2 layers, a linear layer moving from 9216 inputs to 4096 outputs with a ReLU activation function and then dropout for regularization, and a second linear layer moving from 4096 inputs to 1 output. 
+
+###Classification Accuracy
+The results of our accuracy of classification are as shows through one of our trains:
+
+![accuracy](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/124210497/add8a19b-68bf-4e1b-acab-e4fd54f9ff17)
+
+
+We train over the training data and after each epoch report the validations results. The learning appears to be unstable, as well as it doesn’t seem to be improving between epochs. We believe that the issue lies in our training loop and believe it could be something small. It could also be the format in which we input our data. At this moment, our results are only slightly better than 50/50, so we need to improve drastically. We don’t believe that the overarching architecture with the CNN and FF layers are the issue, rather something dealing with the changing of weights.
+
+###Future Improvements
+While we are happy to have code running with no physical errors, there obviously are a few different things we know that we could drastically improve. Our initial thought for training our model was to give it a real signature and a fake signature for the training samples, so that it can learn the difference between the two. We then included some real and real samples along with the real and fake. We believe that potentially training it on more pairs of real and real could help for the generalization of the model. We don’t want it to be overfit to specific outcomes. It would require a lot of data preparation again too, since we’d have to make sure we aren’t repeating data points, and there is enough of the data matched up. We also need to consider how many combinations of real signatures to use. For example for person A, we could pair signature 1 with signatures 2,3,4, and 5 which would result in 4 new data points, but there are also many other real on real combinations possible. If we decide to test this out, we will have to start as soon as possible as cleaning and preparing the data was what took the longest between the last deliverable and this one.
+
+Another item for improvement is potentially exploring different data augmentation techniques rather than just the mirroring in 3 directions other than the original. This could help improve the robustness of the network by providing more data to train with. This may or may not help, as we know that more data doesn’t necessarily mean more accuracy if we are still dealing with the same original data. Again, we want to avoid potential overfitting, so we can explore this and see what happens. We also want to avoid changing the spatial frequency like blurring or sharpening the data, so while data augmentation might be useful we still need to be careful.
+
+We also could see the effect of adding more layers to our initial CNN. We could also adjust and or implement things like batch normalization and dropout and see how that will affect the network’s accuracy. One thing we also didn’t experiment much was changing the learning rate and the optimizer, these things potentially could have an impact on the model’s performance. So tuning the hyperparameters is definitely a must going forward.
+
 
 
 ### Breakdown of Work:
@@ -90,14 +114,19 @@ Both:
  - Worked in Hesburgh Library/LaFun together
  - Went through many iterations to get code running with no errors
  - Attempted to debug issue with learning
+ - Worked on data loading and architectual design together
+ - Worked on training and evaluation techniques
 
 Patrick:
  - Downloading and getting raw data into Drive
  - Creation of preprocessing functions like flipping and converting to grayscale
  - Original architecture design considerations and code setup
+ - Training and evaluation design
 
 Evan:
  - Function to resize all of the images to standard size
  - Preprocessing Data to tensors and prepping train/validation split
  - Created data loader
  - Prepped final report outline going into meeting
+
+
