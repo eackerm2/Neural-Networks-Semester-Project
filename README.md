@@ -82,6 +82,11 @@ _Worked Together in Hesburg Library_
 # Part 3: First Solution and Validation Accuracy
 
 ### Breakdown of Work:
+Both:
+ - Worked in Hesburgh Library/LaFun together
+ - Went through many iterations to get code running with no errors
+ - Attempted to debug issue with learning
+
 Patrick:
  - Downloading and getting raw data into Drive
  - Creation of preprocessing functions like flipping and converting to grayscale
@@ -91,3 +96,4 @@ Evan:
  - Function to resize all of the images to standard size
  - Preprocessing Data to tensors and prepping train/validation split
  - Created data loader
+ - Prepped final report outline going into meeting
