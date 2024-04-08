@@ -80,6 +80,9 @@ After getting into the dataset and working in CoLab, we were able to start some 
 _Worked Together in Hesburg Library_
 
 # Part 3: First Solution and Validation Accuracy
+## SOURCE CODE INSTRUCTIONS
+Download the VALIDATION notebook and the Two Validation images. Go into Model.Txt and get the link to the path of trained weights (GitHub wouldn't let us upload bc it was too big). Also to note, inside of the notebook you can insert the two images into the runtime manually by just uploading them on the side bar, but for some reason it doesn't appear like you can do that with the trained weights. So just upload them to drive anywhere and then in the code we have an input line for the path to that. Sorry for any inconvience for that but we don't think theres a way around it.
+
 ## Justification of Architecture
 ### General Architecture:
 For our project, we had decided to explore the technique of using a Siamese network to help train our model. The basis is that our network has two inputs so that it can compare two patterns and output a value corresponding to the similarity between them. That way the network could learn the difference between real signatures and fake signatures via training.
