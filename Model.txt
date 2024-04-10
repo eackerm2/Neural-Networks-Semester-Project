@@ -4,10 +4,15 @@ https://drive.google.com/file/d/10NbkAuSROQbTD2nho6QWlZLH-y86Fzif/view?usp=drive
 Best Model:
 https://colab.research.google.com/drive/16aZQ3oQ74q5e6QOUQOJouDqsLIkwWZUJ#scrollTo=Ti5YE8TlyA5Z
 
-Current distance stats:
+Current distance stats from training:
 Cumulative Loss 7.87311e+01
 Average Match Distance = 1.1002403122732434 Max Match Distance = 3.461207389831543
 Average Forged Distance = 0.24794075714587446 Max Forged Distance = 1.0185365676879883
 Threshold updated to 0.45820419365135856
 Validation Accuracy Achieved: 0.8787878787878788
 
+Current distance stats from testing:
+Average Match Distance = 1.1108307336420715 Max Match Distance = 3.461207389831543
+Average Forged Distance = 0.2452660257485197 Max Forged Distance = 1.0185365676879883
+Threshold has been updated to 0.46040263551179794
+Test Accuracy: 0.8772727272727273
