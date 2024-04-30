@@ -1,6 +1,7 @@
 # Neural-Networks-Semester-Project
 ### Evan Ackerman and Patrick Schlosser
 This is the repository for our semester project in CSE 40868.
+Spring 2024
 
 # Part One: Conceptual Design
 ## Project Introduction and Practical Application
