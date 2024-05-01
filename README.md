@@ -134,4 +134,23 @@ Evan:
  - Created data loader
  - Prepped final report outline going into meeting
 
+# Part 4: Final Solution
+
+### Description of Test Database
+
+### Classification Accuracy
+
+### Discussion of Results and Improvements
+
+### Breakdown of Work:
+Both:
+ - worked together in the CSE commons/after class/in Hesburgh library to get code running
+ - spoke with Prof. Czajka about how to improve our model from Part 3
+ - over many hours discussed potential changes to architecture and loss function
+
+Patrick:
+
+Evan:
+ - Made a model with less trainable parameters to attempt to increase training speed and lower margin from error
+ - Prepare the Test Script and gathered fun examples to test on from friend signatures
 
