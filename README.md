@@ -137,10 +137,43 @@ Evan:
 # Part 4: Final Solution
 
 ### Description of Test Database
+The test database that we ran our model on was a closed off section of the original database from the training and validation samples. The images were resized to 200x75 and rotated to increase data points, just as we did for the training and validation sets. So the format and nature of the data remains the same. To play around with our model and see what it would do with samples not from the Kaggle set, we made some signatures by hand (from friends who consented as well), scanned them, and uploaded them. In fact, the sample provided for the test sample on this GitHub page is one done by a friend, which had no way of being in the train or validation sets, as we did this after we had trained our model!
+
+It is important to note that the way they are sectioned off (referring to the subset from our Kaggle data) is in a way such that there are no identities in the testing data that appeared in the training data. We paired the data so that it was based on specific subjects, and made sure that it wasn’t totally random for training which would expose the model to all of the different people. In other words, one specific person from our database, their signatures and forgeries only appear in either the train data, validation data, or the test data, not multiple. In the test set we have 240 pairs, compared to 715 pairs from the training data and 240 from the validation data. So the test data is the same size as the validation data.
+
+We believe that these differences in the test data from training and validation suffice for our model, because we wanted it to be subject agnostic. By ensuring it wasn’t just trained on a combination of all the people’s signatures, this allows us to see how the model performs on brand new subjects, like our friends for instance. When doing the fun testing samples from ones we uploaded ourselves, we saw a testing accuracy similar to that from the testing set.
+
 
 ### Classification Accuracy
+We received an accuracy score of 82.5% for a model trained for 50 epochs, for other models trained above 10 epochs or so, the train accuracy was generally 80-87%.
+
+![50 Epoch Test Accuracy](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/6a86867b-9baa-4ee6-b5de-d41c50e5a624)
+
+
+We also plotted the distribution of the pairs of signatures to help get a good idea of how the model was separating “matches” from “forgeries”. Compared to where we were initially, the model is doing a much better job of distinguishing the forgeries from the matches, when previously both distributions were overlaid with each other, showing the random chance we had initially.
+
+![50 Epoch Dist](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/c8a80f18-bdce-450d-9d31-515a76372a96)
+
 
 ### Discussion of Results and Improvements
+In general there are a few things that we want to discuss about our results. First of all, we saw a great increase in our accuracy since Part 3. At the time of Part 3 we had a train/validation accuracy right near random chance. There were a few things that we changed to get our model on track. The first task was playing with the margin of our loss function. Originally our loss wasn’t quite stable, it was going up and down for both validation and training sets. We realized our contrastive loss margin was too small for the operations we were doing on the data. So we raised the margin and the loss was finally working as intended, and consequently the accuracy began to finally go up. Another item that we realized was a problem was that we had MaxPooling too early on in the network architecture. We noticed when looking at the distribution of the distances between pairs of signatures, they were all over the place. Our hypothesis was that the network was over exaggerating features that were irrelevant to the identity of the signatures, leading to such poor accuracy. So we went ahead and got rid of the MaxPooling in the first couple of layers and only had it later on in the network, again our accuracy began to grow. We then tuned some hyperparameters such as lowering the dropout, playing with kernel sizes, etc. So from last time to this time, our training/val accuracy went from being in the 50%’s, to now being in the 90%s. We were quite happy with this improvement.
+
+
+Nonetheless, now when we ran the trained model on the test set we saw test accuracies in the 80-85% range (depending on the model used from number of epochs trained for). While this is a drop off from the training accuracy, we actually thought it would drop even lower. It was expected to drop at some level for a few reasons that we suspected as the semester went on.
+
+For example, the quality of some of the signatures in the dataset weren’t that great. Below are two genuine signatures from the same person, but they look quite different. Whenever this dataset was created, the upload of these scans clearly wasn’t great quality. In the future for improvements, we would have spent more time going through each signature and cleaning out pairs that had such low quality.
+
+![image](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/88e90f61-c5ff-4bf4-9b6f-51e8af2c92a6)
+
+![image](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/7575231f-aa21-4948-8f03-66bd11d2cf44)
+
+Another thing that we did that probably didn’t help the testing of the model was the resizing of the images. When resizing, we tried to make sure that the images weren’t too large, as it would be computationally costly to make a model to digest larger images. So we decided on a size of 200x75. However, from the dataset, the original images were of all different dimensions. So the resizing of the images probably affected the quality of some of our samples.For instance, this image quality upon resizing wasn’t the best. In the future for improvements, we would need to have a better way of standardizing the images such that the quality is preserved, or just make sure when the data is collected the first time it is uniform. Obviously the second option would be nice, but would require us to have created our own database of signatures.
+
+![image](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/122949257/b7068da9-0197-48d3-b661-0d17918dabf0)
+
+In terms of other improvements we could make is try using a different loss function. The contrastive loss function was very tricky to deal with in terms of setting a margin, and we are not sure if it is even totally optimized for our current model. So if we had more time to iterate we possibly would have used a different loss function, or spent more time learning how contrastive loss could be optimized.
+
+Overall, this project was a great learning experience. We were able to wrestle with a data set and do some real preprocessing techniques. We were able to learn about how to debug our models by analyzing the movement of loss, and dissecting different pieces of the architecture. Definitely a rewarding semester!
 
 ### Breakdown of Work:
 Both:
