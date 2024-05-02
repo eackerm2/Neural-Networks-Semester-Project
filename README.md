@@ -152,5 +152,8 @@ Patrick:
 
 Evan:
  - Made a model with less trainable parameters to attempt to increase training speed and lower margin from error
- - Prepare the Test Script and gathered fun examples to test on from friend signatures
+ - Prepare the Test Script to run for a single sample
+ - gathered fun examples to test on from friend signatures (with their consent)
+ - searched dataset for potential errors that may have caused test accuracy drop
+   
 
