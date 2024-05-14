@@ -1,7 +1,6 @@
-# Neural-Networks-Semester-Project
+# Signature Authentication Siamese Network
 ### Evan Ackerman and Patrick Schlosser
-This is the repository for our semester project in Neural Networks - CSE 40868.
-Spring 2024.
+This is the repository for our semester project in Neural Networks - CSE 40868 Spring 2024.
 
 ![SiameseArchitecture](https://github.com/eackerm2/Neural-Networks-Semester-Project/assets/124210497/95b64aca-3525-4d28-bd85-2a5c5a59cde6)
 
